@@ -7,19 +7,17 @@ class Program
     {
         //test
         DisplayWelcome();
-
-        //test
+        
         string username = PromptUserName();
-        Console.WriteLine(username);
-
-        //test
+        
         int usernumber = PromptUserNumber();
-        Console.WriteLine(usernumber);
 
-        //test
         int bYear;
         PromptUserBirthYear(out bYear);
-        Console.WriteLine(bYear);
+
+        usernumber = SquareNumber(usernumber);
+
+        DisplayResult(username , usernumber , bYear);
     }
 
     //   DisplayWelcome - Displays the message, "Welcome to the Program!"
@@ -32,7 +30,7 @@ class Program
     //   PromptUserName - Asks for and returns the user's name (as a string)
     static string PromptUserName()
     {
-        Console.Write("What is your name? ");
+        Console.Write("Please enter your name: ");
         string username = Console.ReadLine();
 
         return username;
@@ -41,7 +39,7 @@ class Program
     //   PromptUserNumber - Asks for and returns the user's favorite number (as an integer)
     static int PromptUserNumber()
     {
-        Console.Write("What is your favorite number? ");
+        Console.Write("Please enter your favorite number: ");
         int usernumber = int.Parse(Console.ReadLine());
 
         return usernumber;  
@@ -54,13 +52,25 @@ class Program
     // parameter.
     static void PromptUserBirthYear(out int yearVariable)
     {
-        Console.Write("What is your birth year? ");
+        Console.Write("Please enter the year you were born: ");
         yearVariable = int.Parse(Console.ReadLine());
     }
 
 
-    //  SquareNumber - Accepts an integer as a parameter and returns that number squared (as an integer)
+    //  SquareNumber - Accepts an integer as a parameter and returns that
+    //  number squared (as an integer)
+    static int SquareNumber(int number)
+    {
+        int number2 = number * number;
+        return number2;
+    }
 
     //     DisplayResult - Accepts the user's name, the squared number, and the user's birth year. Display the user's name and squared number. Calculate hold many years 
     //  old they will turn this year and display that.
+    static void DisplayResult(string username , int numberSquared , int birthYear)
+    {
+        Console.WriteLine($"{username}, the square or your favorite number is {numberSquared}.");
+        int age = 2026 - birthYear;
+        Console.WriteLine($"{username}, you will turn {age} this year.");
+    }
 }
