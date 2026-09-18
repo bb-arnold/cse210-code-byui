@@ -11,6 +11,15 @@ class Program
         //test
         string username = PromptUserName();
         Console.WriteLine(username);
+
+        //test
+        int usernumber = PromptUserNumber();
+        Console.WriteLine(usernumber);
+
+        //test
+        int bYear;
+        PromptUserBirthYear(out bYear);
+        Console.WriteLine(bYear);
     }
 
     //   DisplayWelcome - Displays the message, "Welcome to the Program!"
@@ -30,9 +39,25 @@ class Program
     }
 
     //   PromptUserNumber - Asks for and returns the user's favorite number (as an integer)
+    static int PromptUserNumber()
+    {
+        Console.Write("What is your favorite number? ");
+        int usernumber = int.Parse(Console.ReadLine());
 
-    //     PromtUserBirthYear - Accepts out integer parameter and prompts the user for the year they were born. The out parameter is set to their birth year. 
-    //  This function does not return a value. The user's birth year is given back from the function via the out parameter.
+        return usernumber;  
+    }
+
+    //     PromptUserBirthYear - Accepts out integer parameter and prompts
+    // the user for the year they were born. The out parameter is set 
+    // to their birth year. This function does not return a value. The 
+    // user's birth year is given back from the function via the out
+    // parameter.
+    static void PromptUserBirthYear(out int yearVariable)
+    {
+        Console.Write("What is your birth year? ");
+        yearVariable = int.Parse(Console.ReadLine());
+    }
+
 
     //  SquareNumber - Accepts an integer as a parameter and returns that number squared (as an integer)
 
