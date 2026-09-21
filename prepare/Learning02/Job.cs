@@ -9,12 +9,6 @@ public class Job
         //Behaviors:
             //Displays the job information in the format "Job Title (Company) StartYear-EndYear", for example: "Software Engineer (Microsoft) 2019-2022".
 
-    
-    //Initializer method
-    public Job()
-    {
-        
-    }
 
     //Initial variables
     public string _jobTitle;
