@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
+        /*Entry class test code
+        
         Entry testEntry = new Entry();
 
         testEntry._prompt = "This is a test prompt";
@@ -13,5 +15,87 @@ class Program
         testEntry.EntryDisplay();
 
         Console.WriteLine("Hello Develop02 World!");
+        */
+
+        //Base variables
+        int input = 0;
+        string prompt;
+        string time;
+        List<string> prompts = new List<string>();
+        Journal journal = new Journal();
+
+        //Initial message
+        Console.WriteLine();
+        Console.WriteLine("Welcome to the Journal program");
+
+        while(input != 5)
+        {
+            Console.WriteLine("Please select one of the following choices:");
+            Console.WriteLine("1. Write");
+            Console.WriteLine("2. Display");
+            Console.WriteLine("3. Load");
+            Console.WriteLine("4. Save");
+            Console.WriteLine("5. Quit");
+            Console.Write("What would you like to do?");
+
+            try
+            {
+                //read input
+                input = int.Parse(Console.ReadLine());
+
+                //Write option
+                if(input == 1)
+                {
+                    Console.WriteLine("input = 1");
+                }
+
+                //Display option
+                else if(input == 2)
+                {
+                    Console.WriteLine("input = 2");
+                }
+
+                //Load option
+                else if(input == 3)
+                {
+                    Console.WriteLine("input = 3");
+                }
+
+                //Save option
+                else if(input == 4)
+                {
+                    Console.WriteLine("input = 4");
+                }
+                else if(input == 5)
+                {
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Please enter a number between 1 and 5 inclusive.");
+                }
+
+
+
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Please input a number between 1 and 5 inclusive.");
+                Console.WriteLine("");
+
+            } 
+            catch (ArgumentNullException)
+            {
+                Console.WriteLine("");
+                Console.WriteLine("Input is null. Please input a number between 1 and 5 inclusive.");
+                Console.WriteLine("");                
+            }
+
+        }
+
+
+
+
     }
 }
