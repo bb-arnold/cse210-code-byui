@@ -19,9 +19,11 @@ class Program
 
         //Base variables
         int input = 0;
-        string prompt;
-        string time;
-        List<string> prompts = new List<string>();
+        string prompt = "";
+        string time = "";
+        string text = "";
+
+        List<string> prompts = ["This is the test prompt"];
         Journal journal = new Journal();
 
         //Initial message
@@ -36,7 +38,7 @@ class Program
             Console.WriteLine("3. Load");
             Console.WriteLine("4. Save");
             Console.WriteLine("5. Quit");
-            Console.Write("What would you like to do?");
+            Console.Write("What would you like to do? ");
 
             try
             {
@@ -46,7 +48,20 @@ class Program
                 //Write option
                 if(input == 1)
                 {
-                    Console.WriteLine("input = 1");
+                    //set and print prompt
+                    prompt = prompts[0];
+                    Console.WriteLine(prompt);
+
+                    //allow input, set that to the text variable
+                    Console.Write(">");
+                    text = Console.ReadLine();
+
+                    //get date from system, set time to that
+                    time = DateTime.Now.ToShortDateString();
+
+                    //call AddEntry passing in those variables
+                    journal.AddEntry(text, prompt, time, prompts);
+
                 }
 
                 //Display option
@@ -66,10 +81,12 @@ class Program
                 {
                     Console.WriteLine("input = 4");
                 }
+                
                 else if(input == 5)
                 {
                     
                 }
+                
                 else
                 {
                     Console.WriteLine("Please enter a number between 1 and 5 inclusive.");
