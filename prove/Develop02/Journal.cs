@@ -7,7 +7,7 @@ class Journal
     public List<Entry> _entries = new List<Entry>();
 
 
-    public void AddEntry(string text, string prompt, string time, List<string> prompts)
+    public void AddEntry(string text, string prompt, string time)
     {
         //Create entry
         Entry entry = new Entry();
@@ -31,20 +31,30 @@ class Journal
 
     public void SaveEntries(string fileName)
     {
+        //open file
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
             foreach (Entry entry in _entries)
             {
+                //Add entry information in the format
+                //time,prompt,text. 
+                outputFile.WriteLine($"{entry._time},{entry._prompt},{entry._text}");
 
-                outputFile.WriteLine(entry._time);
-                outputFile.WriteLine(entry._prompt);
-                outputFile.WriteLine(entry._text);
             }
         }
     }
 
-    public void LoadEntries()
+    public void LoadEntries(string fileName, Journal journal)
     {
-        
+        //read all lines, save them to an array of strings
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+
+        foreach (string line in lines)
+        {
+            //separate the line parts
+            string[] parts = line.Split(",");
+            //create new entry
+            journal.AddEntry(parts[0], parts[1], parts[2]);
+        }
     }
 }

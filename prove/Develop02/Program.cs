@@ -61,7 +61,7 @@ class Program
                     time = DateTime.Now.ToShortDateString();
 
                     //call AddEntry passing in those variables
-                    journal.AddEntry(text, prompt, time, prompts);
+                    journal.AddEntry(text, prompt, time);
 
                 }
 
@@ -74,7 +74,11 @@ class Program
                 //Load option
                 else if(input == 3)
                 {
-                    Console.WriteLine("input = 3");
+                    //Ask for filename
+                    Console.WriteLine("What is the filename?");
+                    string fileName = Console.ReadLine();
+
+                    journal.LoadEntries(fileName, journal);
                 }
 
                 //Save option
