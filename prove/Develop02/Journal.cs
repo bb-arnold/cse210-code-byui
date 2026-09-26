@@ -54,7 +54,7 @@ class Journal
             //separate the line parts
             string[] parts = line.Split(",");
             //create new entry
-            journal.AddEntry(parts[0], parts[1], parts[2]);
+            journal.AddEntry(parts[2], parts[1], parts[0]);
         }
     }
 }
