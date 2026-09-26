@@ -23,8 +23,14 @@ class Program
         string time = " ";
         string text = " ";
 
-        List<string> prompts = ["This is the test prompt"];
         Journal journal = new Journal();
+        PromptGenerator promptGenerator = new PromptGenerator();
+        List<string> prompts = ["What was the best thing I ate today?" ,
+                                "What was the best part of my day?" ,
+                                "Who was the most interesting person I met today?" ,
+                                "What is one thing I did today that I am proud of?" ,
+                                "What is one way I saw God's hand in my life today?"];
+
 
         //Initial message
         Console.WriteLine();
@@ -50,7 +56,7 @@ class Program
                 if(input == 1)
                 {
                     //set and print prompt
-                    prompt = prompts[0];
+                    prompt = promptGenerator.GeneratePrompt(prompts);
                     Console.WriteLine(prompt);
 
                     //allow input, set that to the text variable

@@ -46,15 +46,23 @@ class Journal
 
     public void LoadEntries(string fileName, Journal journal)
     {
-        //read all lines, save them to an array of strings
-        string[] lines = System.IO.File.ReadAllLines(fileName);
 
-        foreach (string line in lines)
+        try
         {
-            //separate the line parts
-            string[] parts = line.Split(",");
-            //create new entry
-            journal.AddEntry(parts[2], parts[1], parts[0]);
+            //read all lines, save them to an array of strings
+            string[] lines = System.IO.File.ReadAllLines(fileName);
+
+            foreach (string line in lines)
+            {
+                //separate the line parts
+                string[] parts = line.Split(",");
+                //create new entry
+                journal.AddEntry(parts[2], parts[1], parts[0]);
+            }
+        }
+        catch(FileNotFoundException)
+        {
+            Console.WriteLine("Load failed. Please enter a valid filename");
         }
     }
 }
