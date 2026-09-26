@@ -6,7 +6,6 @@ class Journal
     //base variables
     public List<Entry> _entries = new List<Entry>();
 
-
     public void AddEntry(string text, string prompt, string time)
     {
         //Create entry
@@ -40,12 +39,11 @@ class Journal
                     //Add entry information in the format
                     //time,prompt,text. 
                     outputFile.WriteLine($"{entry._time},{entry._prompt},{entry._text}");
-
                 }
             }
             Console.WriteLine("Save Success");
         }
-        catch(FileNotFoundException)
+        catch (FileNotFoundException)
         {
             Console.WriteLine("Save failed. Please enter a valid filename");
         }
@@ -53,7 +51,6 @@ class Journal
 
     public void LoadEntries(string fileName, Journal journal)
     {
-
         try
         {
             //read all lines, save them to an array of strings
@@ -65,8 +62,6 @@ class Journal
                 string[] parts = line.Split(",");
                 //create new entry
                 journal.AddEntry(parts[2], parts[1], parts[0]);
-
-                
             }
             Console.WriteLine("Load Success.");
         }

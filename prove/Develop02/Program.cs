@@ -4,19 +4,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        /*Entry class test code
-        
-        Entry testEntry = new Entry();
-
-        testEntry._prompt = "This is a test prompt";
-        testEntry._text = "This is the test text";
-        testEntry._time = "Date/Test/is";
-
-        testEntry.EntryDisplay();
-
-        Console.WriteLine("Hello Develop02 World!");
-        */
-
         //Base variables
         int input = 0;
         int input2 = 0;
@@ -37,7 +24,7 @@ class Program
         Console.WriteLine();
         Console.WriteLine("Welcome to the Journal program");
 
-        while(input != 5)
+        while (input != 5)
         {
             Console.WriteLine("Please select one of the following choices:");
             Console.WriteLine("1. Write");
@@ -54,9 +41,8 @@ class Program
                 Console.WriteLine();
 
                 //Write option
-                if(input == 1)
+                if (input == 1)
                 {
-
                     //ask 1 gen ran prompt, 2 insert custom prompt
                     //read this
                     Console.WriteLine("Please Select one of the following choices:");
@@ -93,17 +79,16 @@ class Program
 
                     //call AddEntry passing in those variables
                     journal.AddEntry(text, prompt, time);
-
                 }
 
                 //Display option
-                else if(input == 2)
+                else if (input == 2)
                 {
                     journal.DisplayEntries();
                 }
 
                 //Load option
-                else if(input == 3)
+                else if (input == 3)
                 {
                     //Ask for filename
                     Console.WriteLine("What is the filename?");
@@ -113,7 +98,7 @@ class Program
                 }
 
                 //Save option
-                else if(input == 4)
+                else if (input == 4)
                 {
                     //Ask for filename
                     Console.WriteLine("What is the filename?");
@@ -122,23 +107,20 @@ class Program
                     journal.SaveEntries(fileName);
                 }
                 
-                else if(input == 5)
-                {
-                    
+                else if (input == 5)
+                {  
                 }
                 
                 else
                 {
                     Console.WriteLine("Please enter a number between 1 and 5 inclusive.");
                 }
-
             }
             catch (FormatException)
             {
                 Console.WriteLine("");
                 Console.WriteLine("Please input a number between 1 and 5 inclusive.");
                 Console.WriteLine("");
-
             } 
             catch (ArgumentNullException)
             {
@@ -146,11 +128,6 @@ class Program
                 Console.WriteLine("Input is null. Please input a number between 1 and 5 inclusive.");
                 Console.WriteLine("");                
             }
-
         }
-
-
-
-
     }
 }
