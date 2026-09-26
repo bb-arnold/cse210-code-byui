@@ -19,6 +19,7 @@ class Program
 
         //Base variables
         int input = 0;
+        int input2 = 0;
         string prompt = " ";
         string time = " ";
         string text = " ";
@@ -55,9 +56,33 @@ class Program
                 //Write option
                 if(input == 1)
                 {
-                    //set and print prompt
-                    prompt = promptGenerator.GeneratePrompt(prompts);
-                    Console.WriteLine(prompt);
+
+                    //ask 1 gen ran prompt, 2 insert custom prompt
+                    //read this
+                    Console.WriteLine("Please Select one of the following choices:");
+                    Console.WriteLine("1. Generate a random prompt to answer");
+                    Console.WriteLine("2. Type in your own prompt");
+
+                    try
+                    {
+                        input2 = int.Parse(Console.ReadLine());
+
+                        if(input2 == 1)
+                        {
+                            //set and print prompt
+                            prompt = promptGenerator.GeneratePrompt(prompts);
+                            Console.WriteLine(prompt);
+                        }
+                        else if(input2 == 2)
+                        {
+                            Console.WriteLine("Please enter your prompt.");
+                            prompt = Console.ReadLine();
+                        }
+                    }
+                    catch(FormatException)
+                    {
+                        Console.WriteLine("1 and 2 are the only valid inputs for this prompt.");
+                    }
 
                     //allow input, set that to the text variable
                     Console.Write(">");

@@ -30,17 +30,24 @@ class Journal
     }
 
     public void SaveEntries(string fileName)
-    {
-        //open file
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+    {   try
         {
-            foreach (Entry entry in _entries)
+            //open file
+            using (StreamWriter outputFile = new StreamWriter(fileName))
             {
-                //Add entry information in the format
-                //time,prompt,text. 
-                outputFile.WriteLine($"{entry._time},{entry._prompt},{entry._text}");
+                foreach (Entry entry in _entries)
+                {
+                    //Add entry information in the format
+                    //time,prompt,text. 
+                    outputFile.WriteLine($"{entry._time},{entry._prompt},{entry._text}");
 
+                }
             }
+            Console.WriteLine("Save Success");
+        }
+        catch(FileNotFoundException)
+        {
+            Console.WriteLine("Save failed. Please enter a valid filename");
         }
     }
 
@@ -58,7 +65,10 @@ class Journal
                 string[] parts = line.Split(",");
                 //create new entry
                 journal.AddEntry(parts[2], parts[1], parts[0]);
+
+                
             }
+            Console.WriteLine("Load Success.");
         }
         catch(FileNotFoundException)
         {
