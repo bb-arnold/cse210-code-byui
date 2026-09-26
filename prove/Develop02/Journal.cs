@@ -22,7 +22,10 @@ class Journal
 
     public void DisplayEntries()
     {
-        
+        foreach (Entry entry in _entries)
+        {
+            entry.EntryDisplay();
+        }
     }
 
     public void SaveEntries()

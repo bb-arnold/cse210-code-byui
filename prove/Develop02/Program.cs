@@ -67,7 +67,7 @@ class Program
                 //Display option
                 else if(input == 2)
                 {
-                    Console.WriteLine("input = 2");
+                    journal.DisplayEntries();
                 }
 
                 //Load option
