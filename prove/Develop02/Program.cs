@@ -19,9 +19,9 @@ class Program
 
         //Base variables
         int input = 0;
-        string prompt = "";
-        string time = "";
-        string text = "";
+        string prompt = " ";
+        string time = " ";
+        string text = " ";
 
         List<string> prompts = ["This is the test prompt"];
         Journal journal = new Journal();
@@ -44,6 +44,7 @@ class Program
             {
                 //read input
                 input = int.Parse(Console.ReadLine());
+                Console.WriteLine();
 
                 //Write option
                 if(input == 1)
@@ -79,7 +80,11 @@ class Program
                 //Save option
                 else if(input == 4)
                 {
-                    Console.WriteLine("input = 4");
+                    //Ask for filename
+                    Console.WriteLine("What is the filename?");
+                    string fileName = Console.ReadLine();
+
+                    journal.SaveEntries(fileName);
                 }
                 
                 else if(input == 5)
@@ -91,8 +96,6 @@ class Program
                 {
                     Console.WriteLine("Please enter a number between 1 and 5 inclusive.");
                 }
-
-
 
             }
             catch (FormatException)
