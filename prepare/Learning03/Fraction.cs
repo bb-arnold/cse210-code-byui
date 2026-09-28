@@ -11,18 +11,18 @@ class Fraction
     //Constructor Methods
     public Fraction()
     {
-        _top = 1;
-        _bottom = 1;
+        SetTop(1);
+        SetBottom(1);
     }
     public Fraction(int wholeNumber)
     {
-        _top = wholeNumber;
-        _bottom = 1;
+        SetTop(wholeNumber);
+        SetBottom(1);
     }
     public Fraction(int top, int bottom)
     {
-        _top = top;
-        _bottom = bottom;
+        SetTop(top);
+        SetBottom(bottom);
     }
 
     //Methods 
@@ -62,11 +62,8 @@ class Fraction
 
     public string RandomFractionString()
     {
-            _top = random.Next(0,31);
-            _bottom = random.Next(1,31);
-            
-            SetBottom(_bottom);
-            SetTop(_top);
+            SetTop(random.Next(0,31));
+            SetBottom(random.Next(1,31));
 
             string fractionInfo = $"string: {GetFractionString()} Number: {GetDecimalValue()}";
             return fractionInfo;
