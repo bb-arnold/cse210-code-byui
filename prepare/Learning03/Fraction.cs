@@ -43,5 +43,18 @@ class Fraction
     public void SetBottom(int bottom)
     {
         _bottom = bottom;
+    }
+
+    // - other methods
+    public string GetFractionString()
+    {
+        string fractionString = $"{_top}/{_bottom}";
+        return fractionString;
     }    
+
+    public double GetDecimalValue()
+    {
+        double decimalValue = (double)_top/_bottom;
+        return decimalValue;
+    }
 }
