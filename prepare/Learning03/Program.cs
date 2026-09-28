@@ -4,21 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        //create fraction
+        //create variables
         Fraction fraction = new Fraction();
+        int i = 1;
 
-        //setter testing
-        //fraction.SetBottom(4);
-        //fraction.SetTop(4);
-
-        //getter testing
-        int bottom = fraction.GetBottom();
-        int top = fraction.GetTop();
-
-        //Display all ways to show the function.
-        Console.WriteLine(fraction.GetDecimalValue());
-        Console.WriteLine(fraction.GetFractionString());
-
-        
+        //loop
+        while (i < 21)
+        {
+            Console.WriteLine($"Fraction {i}: {fraction.RandomFractionString()}");
+            i += 1;
+        }
     }
 }

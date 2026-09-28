@@ -2,6 +2,8 @@ using System;
 
 class Fraction
 {
+    Random random = new Random();
+
     //Attributes
     private int _top;
     private int _bottom;
@@ -56,5 +58,17 @@ class Fraction
     {
         double decimalValue = (double)_top/_bottom;
         return decimalValue;
+    }
+
+    public string RandomFractionString()
+    {
+            _top = random.Next(0,31);
+            _bottom = random.Next(1,31);
+            
+            SetBottom(_bottom);
+            SetTop(_top);
+
+            string fractionInfo = $"string: {GetFractionString()} Number: {GetDecimalValue()}";
+            return fractionInfo;
     }
 }
