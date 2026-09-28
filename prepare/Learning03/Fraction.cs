@@ -44,7 +44,14 @@ class Fraction
 
     public void SetBottom(int bottom)
     {
-        _bottom = bottom;
+        if(bottom != 0)
+        {
+            _bottom = bottom;
+        }
+        else
+        {
+            bottom = 1;
+        }
     }
 
     // - other methods
