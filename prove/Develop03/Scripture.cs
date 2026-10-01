@@ -50,7 +50,7 @@ class Scripture
 
     public bool IsHidden()
     {
-        foreach(Word word in _verse)
+        foreach (Word word in _verse)
         {
             if (!word.IsHidden())
             {
@@ -64,11 +64,11 @@ class Scripture
     {
         int hidWords = 0;
 
-        while(hidWords < 3)
+        while (hidWords < 3 && !IsHidden())
         {
             int randomIndex = Random.Shared.Next(_verse.Count);
 
-            if(!_verse[randomIndex].IsHidden())
+            if (!_verse[randomIndex].IsHidden())
             {
                 _verse[randomIndex].HideWord();
                 hidWords += 1;
