@@ -5,29 +5,31 @@ class Program
     static void Main(string[] args)
     {
         Scripture scripture = new Scripture("And my father dwelt in a tent", "1 Nephi", 2, 15);
+        string input = " ";
+        bool finished = false;
 
-        Console.WriteLine(scripture.ScriptureString());
-
-        if(scripture.IsHidden())
+        while (input != "quit" && !finished)
         {
-            Console.WriteLine("the scripture verse is hidden");
-        }
-        else
-        {
-            Console.WriteLine("the scripture verse is not hidden");
-        }
+            Console.Clear();
 
-        scripture.HideWords();
+            //print scripturestring
+            Console.WriteLine(scripture.ScriptureString());
+            Console.WriteLine();
+            //print message asking for input
+            Console.WriteLine("Press enter to continue or type 'quit' to finish:");
 
-        Console.WriteLine(scripture.ScriptureString());
+            //read input into input variable
+            input = Console.ReadLine();
 
-        if(scripture.IsHidden())
-        {
-            Console.WriteLine("the scripture verse is hidden");
-        }
-        else
-        {
-            Console.WriteLine("the scripture verse is not hidden");
-        }        
+            //check if scripture is hidden. if so, finished = true. else HideWords
+            if (scripture.IsHidden())
+            {
+                finished = true;
+            }
+            else
+            {
+                scripture.HideWords();
+            }
+        }      
     }
 }
