@@ -40,4 +40,9 @@ class Word
             return true;
         }
     } 
+
+    public void ShowWord()
+    {
+        _wordDisplay = _word;
+    }
 }

@@ -16,13 +16,17 @@ class Program
             Console.WriteLine(scripture.ScriptureString());
             Console.WriteLine();
             //print message asking for input
-            Console.WriteLine("Press enter to continue or type 'quit' to finish:");
+            Console.WriteLine("Press enter to continue, type 'quit' to finish, or type 'reset' to restart:");
 
             //read input into input variable
             input = Console.ReadLine();
 
-            //check if scripture is hidden. if so, finished = true. else HideWords
-            if (scripture.IsHidden())
+            //check if input = reset. if so, reset - restart the loop. Else if check if scripture scripture is hidden. if so, finished = true. else HideWords
+            if (input == "reset")
+            {
+                scripture.ShowWords();
+            }
+            else if (scripture.IsHidden())
             {
                 finished = true;
             }

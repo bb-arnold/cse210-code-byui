@@ -75,4 +75,12 @@ class Scripture
             }
         }
     }
+
+    public void ShowWords()
+    {
+        foreach (Word word in _verse)
+        {
+            word.ShowWord();
+        }
+    }
 }
