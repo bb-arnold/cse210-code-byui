@@ -4,37 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        //create word
-        Word word = new Word("test word");
+        Scripture scripture = new Scripture("And my father dwelt in a tent", "1 Nephi", 2, 15);
 
-        //test word.IsHidden()
-        if (!word.IsHidden())
+        foreach (Word word in scripture._words)
         {
-            Console.WriteLine("the word is not hidden");
-        }
-        else
-        {
-            Console.WriteLine("the word is hidden");
-        }
-
-        //test word.GetWord()
         Console.WriteLine(word.GetWord());
-
-        //test word.HideWord()
-        word.HideWord();
-
-        //print _wordDisplay - it should now be all underscores
-        Console.WriteLine(word.GetWord());
-
-        //double check word.IsHidden
-        if (!word.IsHidden())
-        {
-            Console.WriteLine("the word is not hidden");
         }
-        else
-        {
-            Console.WriteLine("the word is hidden");
-        }
-
     }
 }
