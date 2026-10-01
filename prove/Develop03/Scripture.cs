@@ -47,4 +47,32 @@ class Scripture
         
         return scriptureString;
     }
+
+    public bool IsHidden()
+    {
+        foreach(Word word in _verse)
+        {
+            if (!word.IsHidden())
+            {
+               return false; 
+            }
+        }
+        return true;
+    }
+
+    public void HideWords()
+    {
+        int hidWords = 0;
+
+        while(hidWords < 3)
+        {
+            int randomIndex = Random.Shared.Next(_verse.Count);
+
+            if(!_verse[randomIndex].IsHidden())
+            {
+                _verse[randomIndex].HideWord();
+                hidWords += 1;
+            }
+        }
+    }
 }
