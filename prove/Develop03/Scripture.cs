@@ -1,19 +1,21 @@
 using System;
+using System.Runtime.CompilerServices;
 
 class Scripture
 {
-    public List<Word> _words = new List<Word>();
+    private List<Word> _verse = new List<Word>();
+    private Reference _reference = new Reference();
 
     public Scripture(string wordsString, string book, int chapter, int verseStart, int verseEnd)
     {
-        Reference _reference = new Reference(book, chapter, verseStart, verseEnd);
+        _reference.AddInfo2(book, chapter, verseStart, verseEnd);
 
         AddWords(wordsString);
     }
 
     public Scripture(string wordsString, string book, int chapter, int verseStart)
     {
-        Reference _reference = new Reference(book, chapter, verseStart);
+        _reference.AddInfo1(book, chapter, verseStart);
 
         AddWords(wordsString);
     }
@@ -29,7 +31,20 @@ class Scripture
         {
             Word word = new Word(loopWord); 
 
-            _words.Add(word);
+            _verse.Add(word);
         }
+    }
+
+    public string ScriptureString()
+    {
+        string scriptureString = $"{_reference.GetReference()}";
+
+        foreach (Word word in _verse)
+        {
+            //A space is needed before each word.
+            scriptureString += $" {word.GetWord()}";
+        }
+        
+        return scriptureString;
     }
 }
