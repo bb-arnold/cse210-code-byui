@@ -1,7 +1,8 @@
 using System;
 
 /*
-For the added creativity portion of this assignment
+For the added creativity portion of this assignment, I added an option to reset the verse you are trying to guess so you can start over without having to restart the
+program. I also added a congratulatory/informative message that prints when the program finishes.
 */
 class Program
 {
@@ -38,7 +39,7 @@ class Program
                 scripture.HideWords();
             }
         }      
-
+        Console.Clear();
         scripture.ShowWords();
         Console.Clear();
         Console.WriteLine("Great job working to memorize scriptures!");
