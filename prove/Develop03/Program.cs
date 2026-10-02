@@ -25,7 +25,8 @@ class Program
             //read input into input variable
             input = Console.ReadLine();
 
-            //check if input = reset. if so, reset - restart the loop. Else if check if scripture scripture is hidden. if so, finished = true. else HideWords
+            //check if input = reset. if so, reset - restart the loop. Else if check if scripture scripture is hidden. if so, 
+            // finished = true. else HideWords
             if (input == "reset")
             {
                 scripture.ShowWords();

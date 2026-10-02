@@ -31,7 +31,7 @@ class Word
 
     public Boolean IsHidden()
     {
-        if(_word == _wordDisplay)
+        if (_word == _wordDisplay)
         {
             return false;
         }
