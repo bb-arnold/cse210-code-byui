@@ -4,7 +4,8 @@ using System.Reflection;
 class WritingAssignment : Assignment
 {
     string _title = "";
-    public WritingAssignment(string studentName, string topic, string title) : base (studentName, topic)
+    public WritingAssignment(string studentName, string topic, string title) 
+        : base (studentName, topic)
     {
         _title = title;
     }
