@@ -16,4 +16,14 @@ class Assignment
         string summary = $"{_studentName} - {_topic}";
         return summary;
     }
+
+    public string GetStudentName()
+    {
+        return _studentName;
+    }
+
+    public string GetTopic()
+    {
+        return _topic;
+    }
 }
