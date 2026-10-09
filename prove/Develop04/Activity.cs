@@ -38,11 +38,29 @@ class Activity
                 i = 0;
             }
         }
+        Console.WriteLine();
     }
 
-    protected void CountdownNumbers()
+    public void CountdownNumbers(string message, int time = 6, string line = "same")
     {
-        
+        if (line == "same")
+        {
+            Console.Write(message);
+            Console.Write(" ");
+        }
+        else
+        {
+            Console.WriteLine(message);
+        }   
+
+        for (int i = time; i > 0; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+
+        Console.WriteLine();
     }
 
     protected void StartMessage()
