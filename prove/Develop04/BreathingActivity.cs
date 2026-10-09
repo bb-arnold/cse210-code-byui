@@ -13,8 +13,14 @@ class BreathingActivity : Activity
 
         while (DateTime.Now < endTime)
         {
-            CountdownNumbers("Breathe in...", 4);
+            Console.WriteLine();
+            CountdownNumbers("Breathe in...");
             CountdownNumbers("Breathe out...");
         }
+    }
+
+    public void RunBreathingActivity()
+    {
+        Run(BreatheInOut);
     }
 }

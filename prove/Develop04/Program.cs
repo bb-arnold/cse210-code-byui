@@ -26,6 +26,6 @@ class Program
 
         Console.WriteLine(testActivity.GetDuration());
         */
-        
+        breathingActivity.RunBreathingActivity();
     }
 }

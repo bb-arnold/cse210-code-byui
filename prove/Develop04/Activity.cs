@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.CompilerServices;
 
 class Activity
 {
@@ -48,7 +49,7 @@ class Activity
         Console.WriteLine();
     }
 
-    public void CountdownNumbers(string message, int time = 6, string line = "same")
+    public void CountdownNumbers(string message, int time = 4, string line = "same")
     {
         if (line == "same")
         {
@@ -85,6 +86,7 @@ class Activity
 
     public void EndMessage()
     {
+        Console.WriteLine();
         CountdownSpinner("Well Done!!", 3);
 
         CountdownSpinner($"You have completed another {_duration} seconds of the {_activityName}", 5);
@@ -100,8 +102,16 @@ class Activity
         _duration = duration;
     }
 
-    public void Run(Action functionToRun)
+    public void Run(Action<int> functionToRun)
     {
-        
+        _duration = StartMessage();
+        Console.Clear();
+
+        CountdownSpinner("Get ready...", 3);
+        Console.WriteLine();
+
+        functionToRun(_duration);
+        EndMessage();
+        Console.Clear();
     }
 }
