@@ -12,20 +12,38 @@ class Program
 
         int input = 0;
 
-        /*Testing code
-        Activity testActivity = new Activity("Test Activity", "Testing the welcome message");
+        while (input != 4)
+        {
+            Console.WriteLine("Menu Options:");
+            Console.WriteLine("   1. Start breathing activity");
+            Console.WriteLine("   2. Start reflecting activity");
+            Console.WriteLine("   3. Start listing activity");
+            Console.WriteLine("   4. Quit");
+            Console.Write("Select a choice from the menu: ");
 
-        testActivity.CountdownSpinner("This is the test spinner extra test text", 1, "same");
+            try
+            {
+                input = int.Parse(Console.ReadLine());
 
-        testActivity.CountdownNumbers("This is the test number countdown test", 4, "new");
-
-        testActivity.SetDuration(testActivity.StartMessage());
-
-        Console.Clear();
-        testActivity.EndMessage();
-
-        Console.WriteLine(testActivity.GetDuration());
-        */
-        listingActivity.RunListingActivity();
+                if (input == 1)
+                {
+                    breathingActivity.RunBreathingActivity();
+                }
+                else if (input == 2)
+                {
+                    reflectingActivity.RunReflectingActivity();
+                }
+                else if (input ==3)
+                {
+                    listingActivity.RunListingActivity();
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine();
+                Console.WriteLine("Please enter a number from 1-4.");
+                Console.WriteLine();
+            }
+        }
     }
 }
