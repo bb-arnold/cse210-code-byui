@@ -11,5 +11,8 @@ class Program
         ListingActivity listingActivity = new ListingActivity();
 
         int input = 0;
+
+        Activity testActivity = new Activity();
+        testActivity.CountdownSpinner("This is the test spinner extra test text", 4, "same");
     }
 }
