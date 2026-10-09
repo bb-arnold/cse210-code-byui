@@ -113,4 +113,10 @@ class Activity
         EndMessage();
         Console.Clear();
     }
+
+    protected string RandomStringFromList(List<string> list)
+    {
+        int randomIndex = Random.Shared.Next(list.Count());
+        return list[randomIndex];
+    }
 }

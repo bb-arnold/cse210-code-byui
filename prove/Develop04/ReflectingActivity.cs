@@ -23,21 +23,44 @@ class ReflectingActivity : Activity
                                "What did you learn about yourself through this experience?",
                                "How can you keep this experience in mind in the future?"];
 
-    private void SituationReflection()
+    private void SituationReflection(int duration)
     {
-        Console.WriteLine("Considoe the following prompt:");
+        string randomQuestion = RandomStringFromList(_questions);
+        string randomPrompt = RandomStringFromList(_prompts);
+
+        Console.WriteLine("Considor the following prompt:");
         Console.WriteLine();
 
         //choose a random prompt from prompts and print it
+        Console.WriteLine($"--- {randomPrompt} ---");
+        Console.WriteLine();
 
         //continue when enter is pressed
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.ReadLine();
 
         //instructions with number countdown
+        Console.WriteLine("Now ponder on each of the following questions as they related to this experience.");
+        CountdownNumbers("You may begin in:", 5);
 
         //clear console
+        Console.Clear();
 
         //print random questions with formatting and spinner each time the spinner is done
-    }
-    
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(duration);
 
+        while (DateTime.Now < endTime)
+        {
+            CountdownSpinner($"> {randomQuestion}", 10, "same");
+
+            //reset random question with a new random question
+            randomQuestion = RandomStringFromList(_questions);
+        }
+    }
+
+    public void RunReflectingActivity()
+    {
+        Run(SituationReflection);
+    }
 }
