@@ -9,11 +9,11 @@ class ReflectingActivity : Activity
     {
         
     }
-    List<string> _prompts = ["Think of a time when you stood up for someone else",
+    private List<string> _prompts = ["Think of a time when you stood up for someone else",
                              "Think of a time when you did something really difficult.",
                              "Think of a time when you helped someone in need.",
                              "Think of a time when you did something truly selfless."];
-    List<string> _questions = ["Why was this experience meaningful to you?",
+    private List<string> _questions = ["Why was this experience meaningful to you?",
                                "Have you ever done anything like this before?",
                                "How did you get started?",
                                "How did you feel when it was complete?",

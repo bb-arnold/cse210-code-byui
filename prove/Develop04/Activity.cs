@@ -3,9 +3,9 @@ using System.Runtime.CompilerServices;
 
 class Activity
 {
-    int _duration = 0;
-    string _activityName ;
-    string _welcomeMessage;
+    private int _duration = 0;
+    private string _activityName ;
+    private string _welcomeMessage;
 
     protected Activity(string activityName, string welcomeMessage)
     {
@@ -32,7 +32,6 @@ class Activity
             Console.Write(" ");
         }
         
-
         while (DateTime.Now < endtime)
         {
             Console.Write(characters[i]);

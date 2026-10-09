@@ -8,7 +8,7 @@ class ImagningActivity : Activity
         
     }
 
-    List<string> _senarios = ["Picture yourself sitting safely inside a dry, rustic cabin, looking out a large window at a lush forest. You listen to the soft, rhythmic patter of rain tapping against the glass and leaves. You feel completely warm, secure, and at ease as the earth drinks in the water.",
+    private List<string> _senarios = ["Picture yourself sitting safely inside a dry, rustic cabin, looking out a large window at a lush forest. You listen to the soft, rhythmic patter of rain tapping against the glass and leaves. You feel completely warm, secure, and at ease as the earth drinks in the water.",
                               "Imagine standing barefoot on a secluded beach at sunset, where the wet sand molds perfectly to your feet. You watch the small, crystal-clear waves gently roll onto the shore and recede. Your breathing naturally matches the steady, soothing rhythm of the tide.",
                               "Picture yourself walking slowly through a sun-drenched alpine meadow filled with wildflowers. A cool, gentle breeze brushes against your skin, carrying the faint, sweet scent of pine and lavender. You feel completely unhurried, with nothing to do but enjoy the quiet space.",
                               "Imagine curling up in a plush, comfortable armchair in a dimly lit room, wrapped in your favorite soft blanket. A fireplace crackles softly in front of you, casting a warm, amber glow across the room. You watch the flames dance and change shape, feeling deeply anchored and still.",
