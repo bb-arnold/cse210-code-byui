@@ -12,6 +12,7 @@ class Program
 
         int input = 0;
 
+        /*Testing code
         Activity testActivity = new Activity("Test Activity", "Testing the welcome message");
 
         testActivity.CountdownSpinner("This is the test spinner extra test text", 1, "same");
@@ -24,5 +25,7 @@ class Program
         testActivity.EndMessage();
 
         Console.WriteLine(testActivity.GetDuration());
+        */
+        
     }
 }

@@ -6,8 +6,15 @@ class BreathingActivity : Activity
     {
         
     }
-    public void BreatheInOut()
+    public void BreatheInOut(int duration)
     {
-        
+        DateTime startTime = DateTime.Now;
+        DateTime endTime = startTime.AddSeconds(duration);
+
+        while (DateTime.Now < endTime)
+        {
+            CountdownNumbers("Breathe in...", 4);
+            CountdownNumbers("Breathe out...");
+        }
     }
 }
