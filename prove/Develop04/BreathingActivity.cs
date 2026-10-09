@@ -2,11 +2,13 @@ using System;
 
 class BreathingActivity : Activity
 {
-    public BreathingActivity() : base("Breathing Activity", "Breathing Activity Welcome Message")
+    public BreathingActivity() 
+    : base("Breathing Activity", 
+           "This activity will help you relax by walking through your breathing in and out slowly. Clear your mind and focus on your breathing.")
     {
         
     }
-    public void BreatheInOut(int duration)
+    private void BreatheInOut(int duration)
     {
         DateTime startTime = DateTime.Now;
         DateTime endTime = startTime.AddSeconds(duration);

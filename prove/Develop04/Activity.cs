@@ -7,15 +7,14 @@ class Activity
     string _activityName ;
     string _welcomeMessage;
 
-    public Activity(string activityName, string welcomeMessage) //Change this to protected
+    protected Activity(string activityName, string welcomeMessage)
     {
         _duration = 0;
         _activityName = activityName;
         _welcomeMessage = welcomeMessage;
     }
 
-//Change these to protected
-    public void CountdownSpinner( string message, int time, string line = "new")
+    protected void CountdownSpinner( string message, int time, string line = "new")
     {
         List<string> characters = ["\\" , "|", "/", "-"];
         int i = 0;
@@ -49,7 +48,7 @@ class Activity
         Console.WriteLine();
     }
 
-    public void CountdownNumbers(string message, int time = 4, string line = "same")
+    protected void CountdownNumbers(string message, int time = 4, string line = "same")
     {
         if (line == "same")
         {
@@ -71,7 +70,7 @@ class Activity
         Console.WriteLine();
     }
 
-    public int StartMessage()
+    protected int StartMessage()
     {
         Console.Clear();
         Console.WriteLine($"Welcome to the {_activityName}");
@@ -84,7 +83,7 @@ class Activity
         return int.Parse(Console.ReadLine());
     }
 
-    public void EndMessage()
+    protected void EndMessage()
     {
         Console.WriteLine();
         CountdownSpinner("Well Done!!", 3);
@@ -92,17 +91,17 @@ class Activity
         CountdownSpinner($"You have completed another {_duration} seconds of the {_activityName}", 5);
     }
 
-    public int GetDuration()
+    protected int GetDuration()
     {
         return _duration;
     }
 
-    public void SetDuration(int duration)
+    protected void SetDuration(int duration)
     {
         _duration = duration;
     }
 
-    public void Run(Action<int> functionToRun)
+    protected void Run(Action<int> functionToRun)
     {
         _duration = StartMessage();
         Console.Clear();
