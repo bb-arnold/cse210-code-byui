@@ -2,7 +2,7 @@ using System;
 
 class Activity
 {
-    int _duration;
+    int _duration = 0;
     string _activityName ;
     string _welcomeMessage;
 
@@ -83,19 +83,21 @@ class Activity
         return int.Parse(Console.ReadLine());
     }
 
-    protected void EndMessage()
+    public void EndMessage()
     {
-        
+        CountdownSpinner("Well Done!!", 3);
+
+        CountdownSpinner($"You have completed another {_duration} seconds of the {_activityName}", 5);
     }
 
-    protected void GetDuration()
+    public int GetDuration()
     {
-        
+        return _duration;
     }
 
-    protected void SetDuration()
+    public void SetDuration(int duration)
     {
-        
+        _duration = duration;
     }
 
     public void Run(Action functionToRun)

@@ -18,8 +18,11 @@ class Program
 
         testActivity.CountdownNumbers("This is the test number countdown test", 4, "new");
 
-        int duration = testActivity.StartMessage();
+        testActivity.SetDuration(testActivity.StartMessage());
 
-        Console.WriteLine(duration);
+        Console.Clear();
+        testActivity.EndMessage();
+
+        Console.WriteLine(testActivity.GetDuration());
     }
 }
