@@ -12,9 +12,14 @@ class Program
 
         int input = 0;
 
-        Activity testActivity = new Activity();
+        Activity testActivity = new Activity("Test Activity", "Testing the welcome message");
+
         testActivity.CountdownSpinner("This is the test spinner extra test text", 1, "same");
 
         testActivity.CountdownNumbers("This is the test number countdown test", 4, "new");
+
+        int duration = testActivity.StartMessage();
+
+        Console.WriteLine(duration);
     }
 }

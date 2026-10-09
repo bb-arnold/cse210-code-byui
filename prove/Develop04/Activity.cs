@@ -3,10 +3,17 @@ using System;
 class Activity
 {
     int _duration;
-    string _activityName;
+    string _activityName ;
     string _welcomeMessage;
 
+    public Activity(string activityName, string welcomeMessage) //Change this to protected
+    {
+        _duration = 0;
+        _activityName = activityName;
+        _welcomeMessage = welcomeMessage;
+    }
 
+//Change these to protected
     public void CountdownSpinner( string message, int time, string line = "new")
     {
         List<string> characters = ["\\" , "|", "/", "-"];
@@ -63,9 +70,17 @@ class Activity
         Console.WriteLine();
     }
 
-    protected void StartMessage()
+    public int StartMessage()
     {
-        
+        Console.Clear();
+        Console.WriteLine($"Welcome to the {_activityName}");
+        Console.WriteLine();
+
+        Console.WriteLine(_welcomeMessage);
+        Console.WriteLine();
+
+        Console.Write("How long, in seconds, would you like for your session? ");
+        return int.Parse(Console.ReadLine());
     }
 
     protected void EndMessage()
