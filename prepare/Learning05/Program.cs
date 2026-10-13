@@ -3,7 +3,8 @@ using System;
 class Program
 {
     static void Main(string[] args)
-    {   List<Shape> shapes = new List<Shape>();
+    {   
+        List<Shape> shapes = new List<Shape>();
         Square square = new Square("green", 4);
         Rectangle rectangle = new Rectangle("orange", 4, 5);
         Circle circle = new Circle("blue", 5);
