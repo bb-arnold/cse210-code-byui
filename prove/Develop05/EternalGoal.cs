@@ -29,5 +29,4 @@ class EternalGoal : Goal
     {
         AddPoints(_pointValue);
     }
-
 }

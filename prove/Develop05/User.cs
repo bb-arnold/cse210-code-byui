@@ -1,6 +1,7 @@
 using System;
 using System.Security.Cryptography.X509Certificates;
 using System.IO;
+using Microsoft.VisualBasic;
 
 class User
 {
@@ -12,6 +13,7 @@ class User
         _points = 0;
     }
 
+    //written
     public void SaveGoals()
     {
         Console.Write("What is the filename? ");
@@ -86,7 +88,32 @@ class User
 
     public void LoadGoals()
     {
-        Console.WriteLine("Load goals");
+        Console.Write("What is the filename? ");
+        string filename = Console.ReadLine();
+
+        string[] lines = File.ReadAllLines(filename);
+
+        foreach (string line in lines)
+        {
+            string[] information = line.Split("|");
+
+            if (information[^1] == "SimpleGoal")
+            {
+                ProgramCreateSimpleGoal(line);
+            }
+            else if (information[^1] == "EternalGoal")
+            {
+                ProgramCreateSimpleGoal(line);
+            }
+            else if (information[^1] == "ChecklistGoal")
+            {
+                ProgramCreateSimpleGoal(line);
+            }
+            else
+            {
+                _points = int.Parse(line);
+            }
+        }
     }
 
     //written
@@ -138,5 +165,27 @@ class User
     public void EarnPoints(int points)
     {
         _points += points;
+    }
+
+    private void ProgramCreateSimpleGoal(string infoString)
+    {
+        string[] information = infoString.Split("|");
+        SimpleGoal simpleGoal = new SimpleGoal(information[0], information[1], int.Parse(information[2]), this);
+        _goalList.Add(simpleGoal);
+    }
+
+    private void ProgramCreateEternalGoal(string infoString)
+    {
+        string[] information = infoString.Split("|");
+        EternalGoal eternalGoal = new EternalGoal(information[0], information[1], int.Parse(information[2]), this);
+        _goalList.Add(eternalGoal);
+    }
+
+    private void ProgramCreateChecklistGoal(string infoString)
+    {
+        string[] information = infoString.Split("|");
+        ChecklistGoal checklistGoal = new ChecklistGoal(information[0], information[1], int.Parse(information[2]), int.Parse(information[3]), 
+                                                     int.Parse(information[4]), int.Parse(information[5]), this);
+        _goalList.Add(checklistGoal);
     }
 }

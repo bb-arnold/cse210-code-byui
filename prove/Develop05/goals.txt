@@ -1,0 +1,4 @@
+420
+name sg|description sg|10|True|SimpleGoal
+name eternal g|description eternal g|20|EternalGoal
+name checklist goal|description checklist goal|30|300|3|3|ChecklistGoal

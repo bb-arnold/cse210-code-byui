@@ -80,6 +80,4 @@ abstract class Goal
     {
         return _goalName;
     }
-
-
 }

@@ -19,7 +19,7 @@ class SimpleGoal : Goal
     public override string SaveGoalText()
     {
         string lineToSave = base.SaveGoalText();
-        
+
         string lineToAdd = "|" + _complete + "|" + _goalType;
         lineToSave += lineToAdd;
 
