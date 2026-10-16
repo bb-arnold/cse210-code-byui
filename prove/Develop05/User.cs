@@ -1,5 +1,6 @@
 using System;
 using System.Security.Cryptography.X509Certificates;
+using System.IO;
 
 class User
 {
@@ -16,8 +17,15 @@ class User
         Console.Write("What is the filename? ");
         string filename = Console.ReadLine();
 
-        //test code
-        Console.WriteLine(_goalList[0].SaveGoalText());
+        using (StreamWriter goalsFile = new StreamWriter(filename))
+        {
+            goalsFile.WriteLine(_points);
+
+            foreach (Goal goal in _goalList)
+            {
+                goalsFile.WriteLine(goal.SaveGoalText());
+            }
+        }
     }
 
     //written
