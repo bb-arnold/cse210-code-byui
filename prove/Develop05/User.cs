@@ -3,7 +3,8 @@ using System.Security.Cryptography.X509Certificates;
 
 class User
 {
-    int _points;
+    private int _points;
+    private List<Goal> _goals = new List<Goal>();
 
     public User()
     {
@@ -35,13 +36,14 @@ class User
         Console.WriteLine("Record event");
     }
 
+    //All below are fully written
     public void PrintPoints()
     {
-        Console.WriteLine("print points");
-        Console.WriteLine(_points);
+        Console.WriteLine();
+        Console.WriteLine($"You have {_points} points.");
+        Console.WriteLine();
     }
 
-//fully written
     public int GetPoints()
     {
         return _points;

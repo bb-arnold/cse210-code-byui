@@ -9,9 +9,7 @@ class Program
 
         while (input != 6)
         {
-            Console.WriteLine();
             user.PrintPoints();
-            Console.WriteLine();
 
             Console.WriteLine("Menu Options:");
             Console.WriteLine("   1. Create New Goal");
