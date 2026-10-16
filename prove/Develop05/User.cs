@@ -22,9 +22,11 @@ class User
         Console.WriteLine();
         Console.WriteLine("The Goals are:");
 
+        int i = 1;
         foreach (Goal goal in _goalList)
         {
-            Console.WriteLine(goal.DisplayGoal());
+            Console.WriteLine($"{i}. {goal.DisplayGoal()}");
+            i++;
         }
     }
 
@@ -78,6 +80,8 @@ class User
     //written
     public void RecordEvent()
     {
+        int previousPoints = _points;
+
         Console.WriteLine();
         Console.WriteLine("  The goals are: ");
 
@@ -101,6 +105,9 @@ class User
         {
             
         }
+
+        Console.WriteLine($"Congratulations! you have earned {_points - previousPoints} points!");
+
     }
 
     //All below are fully written
@@ -116,8 +123,8 @@ class User
         return _points;
     }
 
-    public void SetPoints(int points)
+    public void EarnPoints(int points)
     {
-        _points = points;
+        _points += points;
     }
 }

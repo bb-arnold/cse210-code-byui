@@ -14,11 +14,17 @@ class CheckListGoal : Goal
         _user = user;
     }
 
-    public CheckListGoal(string goalName, string goalDescription, int pointValue, int timesToComplete, int pointBonus, User user)
+    public CheckListGoal(string goalName, string goalDescription, int pointValue, int timesToComplete, int timesCompleted, int pointBonus, User user)
     : base (goalName, goalDescription, pointValue, user)
     {
         _timesToComplete = timesToComplete;
+        _timesCompleted = timesCompleted;
         _pointBonus = pointBonus;
+
+        if (_timesCompleted >= _timesToComplete)
+        {
+            _complete = true;
+        }
     }
 
     //written
@@ -40,7 +46,13 @@ class CheckListGoal : Goal
     public override void RecordEvent()
     {
         _timesCompleted ++;
+
         AddPoints(_pointValue);
+
+        if (_timesCompleted >= _timesToComplete)
+        {
+            _complete = true;
+        }
     }
 
     //written
@@ -75,7 +87,7 @@ class CheckListGoal : Goal
 
         if (_timesCompleted == _timesToComplete)
         {
-            _user.SetPoints(_user.GetPoints() + _pointBonus);
+            _user.EarnPoints(_pointBonus);
         }
     }
 }
