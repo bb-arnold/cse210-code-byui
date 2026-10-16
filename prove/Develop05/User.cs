@@ -4,11 +4,17 @@ using System.Security.Cryptography.X509Certificates;
 class User
 {
     private int _points;
-    private List<Goal> _goals = new List<Goal>();
+    private List<Goal> _goalList = new List<Goal>();
+
+    //Test Goal
+    Goal _testGoal = new Goal();
 
     public User()
     {
         _points = 0;
+
+        //test goal
+        _goalList.Add(_testGoal);
     }
 
     public void SaveGoals()
@@ -18,7 +24,10 @@ class User
 
     public void DisplayGoals()
     {
-        Console.WriteLine("Display goals");
+        foreach (Goal goal in _goalList)
+        {
+            Console.WriteLine(goal.DisplayGoal());
+        }
     }
 
     public void UserCreateGoals()
