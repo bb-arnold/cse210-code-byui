@@ -5,10 +5,16 @@ class Program
     static void Main(string[] args)
     {
         User user = new User();
+        Celebrate celebrate = new Celebrate();
         int input = 0;
 
         while (input != 6)
         {
+            if (!celebrate.Celebrate1000Check(user.GetPoints()))
+            {
+                celebrate.Celebrate500Check(user.GetPoints());
+            }
+            
             user.PrintPoints();
 
             Console.WriteLine("Menu Options:");
