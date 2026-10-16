@@ -40,7 +40,11 @@ abstract class Goal
         return goalDiplay;
     }
 
-    public abstract string SaveGoal();
+    public virtual string SaveGoalText()
+    {
+        string lineToSave = _goalName + "|" + _goalDiscription + "|" + _pointValue;
+        return lineToSave;
+    }
 
     public abstract void RecordEvent();
 

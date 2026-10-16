@@ -13,7 +13,11 @@ class User
 
     public void SaveGoals()
     {
-        Console.WriteLine("Save goals");
+        Console.Write("What is the filename? ");
+        string filename = Console.ReadLine();
+
+        //test code
+        Console.WriteLine(_goalList[0].SaveGoalText());
     }
 
     //written
@@ -59,7 +63,7 @@ class User
             }
             else if (input == 3)
             {
-                CheckListGoal checkListGoal = new CheckListGoal(this);
+                ChecklistGoal checkListGoal = new ChecklistGoal(this);
                 _goalList.Add(checkListGoal);
 
                 _goalList[_goalList.Count() - 1].UserGoalInput();                

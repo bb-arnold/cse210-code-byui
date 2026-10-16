@@ -2,6 +2,8 @@ using System;
 
 class SimpleGoal : Goal
 {
+    private string _goalType = "SimpleGoal";
+
     public SimpleGoal(User user)
     : base (user)
     {
@@ -14,9 +16,14 @@ class SimpleGoal : Goal
         
     }
 
-    public override string SaveGoal()
+    public override string SaveGoalText()
     {
-        return "simple goal save goal nw";
+        string lineToSave = base.SaveGoalText();
+        
+        string lineToAdd = "|" + _complete + "|" + _goalType;
+        lineToSave += lineToAdd;
+
+        return lineToSave;
     }
 
     //Written

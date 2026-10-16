@@ -1,20 +1,21 @@
 using System;
 using System.Drawing;
 
-class CheckListGoal : Goal
+class ChecklistGoal : Goal
 {
+    string _goalType = "ChecklistGoal";
     private int _timesToComplete;
     private int _timesCompleted;
     private int _pointBonus;
     private User _user;
 
-    public CheckListGoal(User user)
+    public ChecklistGoal(User user)
     : base (user)
     {
         _user = user;
     }
 
-    public CheckListGoal(string goalName, string goalDescription, int pointValue, int timesToComplete, int timesCompleted, int pointBonus, User user)
+    public ChecklistGoal(string goalName, string goalDescription, int pointValue, int timesToComplete, int timesCompleted, int pointBonus, User user)
     : base (goalName, goalDescription, pointValue, user)
     {
         _timesToComplete = timesToComplete;
@@ -37,9 +38,14 @@ class CheckListGoal : Goal
         return goalDisplay;
     }
 
-    public override string SaveGoal()
+    public override string SaveGoalText()
     {
-        return "simple goal save goal nw";
+        string lineToSave = base.SaveGoalText();
+        
+        string lineToAdd = "|" + _pointBonus + "|" + _timesToComplete + "|" + _timesCompleted + "|" + _goalType;
+        lineToSave += lineToAdd;
+
+        return lineToSave;
     }
 
     //written

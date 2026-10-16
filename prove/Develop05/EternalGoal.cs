@@ -2,6 +2,7 @@ using System;
 
 class EternalGoal : Goal
 {
+    string _goalType = "EternalGoal";
     public EternalGoal(User user)
     : base (user)
     {
@@ -14,9 +15,14 @@ class EternalGoal : Goal
         
     }
 
-    public override string SaveGoal()
+    public override string SaveGoalText()
     {
-        return "simple goal save goal nw";
+        string lineToSave = base.SaveGoalText();
+        
+        string lineToAdd = "|" + _goalType;
+        lineToSave += lineToAdd;
+
+        return lineToSave;
     }
 
     public override void RecordEvent()
