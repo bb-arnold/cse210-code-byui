@@ -16,6 +16,7 @@ class User
         Console.WriteLine("Save goals");
     }
 
+    //written
     public void DisplayGoals()
     {
         Console.WriteLine();
@@ -62,7 +63,25 @@ class User
 
     public void RecordEvent()
     {
-        Console.WriteLine("Record event");
+        Console.WriteLine();
+        Console.WriteLine("  The goals are: ");
+
+        int i = 1;
+        foreach (Goal goal in _goalList)
+        {
+            Console.WriteLine($"{i}. {goal.GetName()}");
+            i++;
+        }
+
+        Console.Write("Which goal did you accomplish? ");
+        try
+        {
+        _goalList[int.Parse(Console.ReadLine()) - 1].RecordEvent();
+        }
+        catch (FormatException)
+        {
+            
+        }
     }
 
     //All below are fully written

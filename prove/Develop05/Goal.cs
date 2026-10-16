@@ -44,6 +44,7 @@ abstract class Goal
 
     public abstract void RecordEvent();
 
+    //Written
     public virtual void UserGoalInput()
     {
         Console.Write("What is the name of your goal? ");
@@ -53,7 +54,7 @@ abstract class Goal
         _goalDiscription = Console.ReadLine();
 
         Console.Write("What is the number of points associated with this goal? ");
-        
+
         try 
         {
             _pointValue = int.Parse(Console.ReadLine());
@@ -67,7 +68,13 @@ abstract class Goal
     //written
     public void AddPoints(int points)
     {
-        _user.SetPoints(_pointValue);
+        _user.SetPoints(_user.GetPoints() + _pointValue);
+    }
+
+    //Written
+    public string GetName()
+    {
+        return _goalName;
     }
 
 
