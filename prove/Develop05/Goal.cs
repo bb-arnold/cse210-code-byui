@@ -66,7 +66,7 @@ abstract class Goal
     }
 
     //written
-    public void AddPoints(int points)
+    public void AddPoints()
     {
         _user.SetPoints(_user.GetPoints() + _pointValue);
     }

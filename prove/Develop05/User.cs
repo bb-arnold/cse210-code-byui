@@ -28,7 +28,7 @@ class User
         }
     }
 
-    //written partially - input 1 is functional
+    //written partially - inputs 1 and 2 are functional
     public void UserCreateGoal()
     {
         Console.WriteLine("  The types of Goals are: ");
@@ -48,6 +48,13 @@ class User
 
                 _goalList[_goalList.Count() - 1].UserGoalInput();
             }
+            else if (input == 2)
+            {
+                EternalGoal Eternalgoal = new EternalGoal(this);
+                _goalList.Add(Eternalgoal);
+
+                _goalList[_goalList.Count() - 1].UserGoalInput();                
+            }
         }
         catch (FormatException)
         {
@@ -61,6 +68,7 @@ class User
         Console.WriteLine("Load goals");
     }
 
+    //written
     public void RecordEvent()
     {
         Console.WriteLine();
