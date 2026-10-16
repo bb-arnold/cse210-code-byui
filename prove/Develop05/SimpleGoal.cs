@@ -23,6 +23,6 @@ class SimpleGoal : Goal
     public override void RecordEvent()
     {
         _complete = true;
-        AddPoints();
+        AddPoints(_pointValue);
     }
 }

@@ -21,7 +21,7 @@ class EternalGoal : Goal
 
     public override void RecordEvent()
     {
-        AddPoints();
+        AddPoints(_pointValue);
     }
 
 }

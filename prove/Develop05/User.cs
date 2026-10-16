@@ -28,7 +28,7 @@ class User
         }
     }
 
-    //written partially - inputs 1 and 2 are functional
+    //written
     public void UserCreateGoal()
     {
         Console.WriteLine("  The types of Goals are: ");
@@ -43,15 +43,22 @@ class User
 
             if (input == 1)
             {
-                SimpleGoal simplegoal = new SimpleGoal(this);
-                _goalList.Add(simplegoal);
+                SimpleGoal simpleGoal = new SimpleGoal(this);
+                _goalList.Add(simpleGoal);
 
                 _goalList[_goalList.Count() - 1].UserGoalInput();
             }
             else if (input == 2)
             {
-                EternalGoal Eternalgoal = new EternalGoal(this);
-                _goalList.Add(Eternalgoal);
+                EternalGoal eternalGoal = new EternalGoal(this);
+                _goalList.Add(eternalGoal);
+
+                _goalList[_goalList.Count() - 1].UserGoalInput();                
+            }
+            else if (input == 3)
+            {
+                CheckListGoal checkListGoal = new CheckListGoal(this);
+                _goalList.Add(checkListGoal);
 
                 _goalList[_goalList.Count() - 1].UserGoalInput();                
             }
@@ -87,6 +94,10 @@ class User
         _goalList[int.Parse(Console.ReadLine()) - 1].RecordEvent();
         }
         catch (FormatException)
+        {
+            
+        }
+        catch (ArgumentOutOfRangeException)
         {
             
         }
