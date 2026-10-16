@@ -5,6 +5,11 @@ class User
 {
     int _points;
 
+    public User()
+    {
+        _points = 0;
+    }
+
     public void SaveGoals()
     {
         Console.WriteLine("Save goals");
