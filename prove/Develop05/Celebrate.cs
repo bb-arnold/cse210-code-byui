@@ -21,9 +21,10 @@ class Celebrate
     {
         int pointIncrease = points - _previous500Celebration;
         
-        if (pointIncrease > 500)
+        if (pointIncrease >= 500)
         {
-            //small celebration
+            SmallCelebration("500");
+
             _previous500Celebration = points;
 
             return true;
@@ -36,9 +37,10 @@ class Celebrate
     {
         int pointIncrease = points - _previous1000Celebration;
         
-        if (pointIncrease > 1000)
+        if (pointIncrease >= 1000)
         {
-            //Large celebration
+            LargeCelebration("1000");
+            
             _previous1000Celebration = points;
 
             return true;
@@ -52,14 +54,14 @@ class Celebrate
     //method that sets the constants to the input strings
 
     //large celebration method
-    public void LargeCelebration()
+    public void LargeCelebration(string message)
     {
-        Console.WriteLine("CELEBRATE!!");
+        Console.WriteLine($"CELEBRATE!! {message}");
     }
 
     //small celebration method
-    public void SmallCelebration()
+    public void SmallCelebration(string message)
     {
-        Console.WriteLine("celebrate.");
+        Console.WriteLine($"celebrate. {message}");
     }
 }
