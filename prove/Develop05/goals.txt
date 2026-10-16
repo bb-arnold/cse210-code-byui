@@ -1,4 +1,7 @@
-420
-name sg|description sg|10|True|SimpleGoal
-name eternal g|description eternal g|20|EternalGoal
-name checklist goal|description checklist goal|30|300|3|3|ChecklistGoal
+1950
+Give a talk|Speak in sacrament meeting when asked|100|True|SimpleGoal
+Study the scriptures|Study for at least 10 min|50|EternalGoal
+Attend the temple|Atend and preform any ordinence|50|3|3|500|ChecklistGoal
+wake up early|wake up by at least 6 am|10|10|10|1000|ChecklistGoal
+eat 10 bananas|Eat 10 bananas in less than 5 minutes|35|False|SimpleGoal
+Pray every day|pray at lest twice a day|50|EternalGoal

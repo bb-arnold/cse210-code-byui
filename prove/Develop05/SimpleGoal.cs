@@ -10,10 +10,10 @@ class SimpleGoal : Goal
         
     }
 
-    public SimpleGoal(string goalName, string goalDescription, int pointValue, User user)
+    public SimpleGoal(string goalName, string goalDescription, int pointValue, bool complete, User user)
     : base (goalName, goalDescription, pointValue, user)
     {
-        
+        _complete = complete;
     }
 
     public override string SaveGoalText()

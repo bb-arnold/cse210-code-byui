@@ -103,11 +103,11 @@ class User
             }
             else if (information[^1] == "EternalGoal")
             {
-                ProgramCreateSimpleGoal(line);
+                ProgramCreateEternalGoal(line);
             }
             else if (information[^1] == "ChecklistGoal")
             {
-                ProgramCreateSimpleGoal(line);
+                ProgramCreateChecklistGoal(line);
             }
             else
             {
@@ -170,7 +170,7 @@ class User
     private void ProgramCreateSimpleGoal(string infoString)
     {
         string[] information = infoString.Split("|");
-        SimpleGoal simpleGoal = new SimpleGoal(information[0], information[1], int.Parse(information[2]), this);
+        SimpleGoal simpleGoal = new SimpleGoal(information[0], information[1], int.Parse(information[2]), bool.Parse(information[3]), this);
         _goalList.Add(simpleGoal);
     }
 

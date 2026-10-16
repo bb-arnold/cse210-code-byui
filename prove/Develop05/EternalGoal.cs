@@ -9,7 +9,7 @@ class EternalGoal : Goal
         
     }
 
-    public EternalGoal(string goalName, string goalDescription, int pointValue, User user)
+    public EternalGoal(string goalName, string goalDescription, int pointValue,  User user)
     : base (goalName, goalDescription, pointValue, user)
     {
         

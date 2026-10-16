@@ -21,6 +21,7 @@ class ChecklistGoal : Goal
         _timesToComplete = timesToComplete;
         _timesCompleted = timesCompleted;
         _pointBonus = pointBonus;
+        _user = user;
 
         if (_timesCompleted >= _timesToComplete)
         {
@@ -42,7 +43,7 @@ class ChecklistGoal : Goal
     {
         string lineToSave = base.SaveGoalText();
         
-        string lineToAdd = "|" + _pointBonus + "|" + _timesToComplete + "|" + _timesCompleted + "|" + _goalType;
+        string lineToAdd = "|" + _timesToComplete + "|" + _timesCompleted + "|" + _pointBonus +  "|" + _goalType;
         lineToSave += lineToAdd;
 
         return lineToSave;
