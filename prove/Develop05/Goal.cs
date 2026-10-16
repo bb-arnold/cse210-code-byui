@@ -1,24 +1,27 @@
 using System;
 
-class Goal
+abstract class Goal
 {
-    string _goalName = "No set name.";
-    bool _complete = false;
-    string _goalDiscription = "No description";
-    int _pointValue = 0;
+    private string _goalName = "No set name.";
+    protected bool _complete = false;
+    private string _goalDiscription = "No description";
+    protected int _pointValue = 0;
+    User _user = new User();
 
-    public Goal()
+    public Goal(User user)
     {
-        
+      _user = user;  
     }
 
-    public Goal(string goalName, string goalDiscription, int pointValue)
+    public Goal(string goalName, string goalDiscription, int pointValue, User user)
     {
         _goalName = goalName;
         _goalDiscription = goalDiscription;
         _pointValue = pointValue;
+        _user = user;
     }
 
+    //written
     public virtual string DisplayGoal()
     {
         string goalDiplay = "";
@@ -32,29 +35,39 @@ class Goal
             goalDiplay += "[ ]";
         }
         
-        goalDiplay += $"{_goalName} ({_goalDiscription})";
+        goalDiplay += $" {_goalName} ({_goalDiscription})";
 
         return goalDiplay;
     }
 
-    public string SaveGoal()
+    public abstract string SaveGoal();
+
+    public abstract void RecordEvent();
+
+    public virtual void UserGoalInput()
     {
-        return "goal.Save Goal";
+        Console.Write("What is the name of your goal? ");
+        _goalName = Console.ReadLine();
+
+        Console.Write("Give a short description of it: ");
+        _goalDiscription = Console.ReadLine();
+
+        Console.Write("What is the number of points associated with this goal? ");
+        
+        try 
+        {
+            _pointValue = int.Parse(Console.ReadLine());
+        }
+        catch (FormatException)
+        {
+            
+        }
     }
 
-    public void RecordEvent()
-    {
-        Console.WriteLine("goal.RecordEvent");
-    }
-
-    public void UserGoalInput()
-    {
-        Console.WriteLine("goal.UserGoalInput");
-    }
-
+    //written
     public void AddPoints(int points)
     {
-        Console.WriteLine("goal.addpoints");
+        _user.SetPoints(_pointValue);
     }
 
 

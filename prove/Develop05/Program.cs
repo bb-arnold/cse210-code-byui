@@ -26,7 +26,7 @@ class Program
 
                 if (input == 1)
                 {
-                    user.UserCreateGoals();
+                    user.UserCreateGoal();
                 }
                 else if (input == 2)
                 {

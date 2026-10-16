@@ -6,15 +6,9 @@ class User
     private int _points;
     private List<Goal> _goalList = new List<Goal>();
 
-    //Test Goal
-    Goal _testGoal = new Goal();
-
     public User()
     {
         _points = 0;
-
-        //test goal
-        _goalList.Add(_testGoal);
     }
 
     public void SaveGoals()
@@ -24,15 +18,41 @@ class User
 
     public void DisplayGoals()
     {
+        Console.WriteLine();
+        Console.WriteLine("The Goals are:");
+
         foreach (Goal goal in _goalList)
         {
             Console.WriteLine(goal.DisplayGoal());
         }
     }
 
-    public void UserCreateGoals()
+    //written partially - input 1 is functional
+    public void UserCreateGoal()
     {
-        Console.WriteLine("User Create goals");
+        Console.WriteLine("  The types of Goals are: ");
+        Console.WriteLine("     1. Simple Goal");
+        Console.WriteLine("     2. Eternal Goal");
+        Console.WriteLine("     3. Checklist Goal");
+        Console.Write("  Which type of goal would you like to create? ");
+
+        try
+        {
+            int input = int.Parse(Console.ReadLine());
+
+            if (input == 1)
+            {
+                SimpleGoal simplegoal = new SimpleGoal(this);
+                _goalList.Add(simplegoal);
+
+                _goalList[_goalList.Count() - 1].UserGoalInput();
+            }
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Please enter a number given in the menu.");
+        }
+        
     }
 
     public void LoadGoals()
