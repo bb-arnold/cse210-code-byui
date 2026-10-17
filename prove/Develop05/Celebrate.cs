@@ -40,9 +40,10 @@ class Celebrate
         
         if (pointIncrease >= 1000)
         {
-            LargeCelebration("1000");
+            LargeCelebration($"Congratulations! You have reached {points} points!");
 
             _previous1000Celebration = points;
+            _previous500Celebration = points;
 
             return true;
         }
@@ -57,7 +58,18 @@ class Celebrate
     //large celebration method
     public void LargeCelebration(string message)
     {
-        Console.WriteLine($"CELEBRATE!! {message}");
+        Console.WriteLine();
+        PrintLineOfCharacters("-", message);
+
+        Console.WriteLine("\\ * | * /");
+        Console.WriteLine(" \\  |  /");
+        Console.WriteLine(message);
+        Console.WriteLine(" /  |  \\");
+        Console.WriteLine("/ * | * \\");
+
+        PrintLineOfCharacters("-", message);
+        Console.WriteLine();
+        CountdownSpinner("", 3, "same");
     }
 
     //small celebration method
@@ -114,3 +126,12 @@ class Celebrate
         Console.WriteLine();
     }
 }
+/*
+- - - - - - - - - - - - - - - - - - - - - - - -
+\ * | * /
+ \  |  /
+Congratulations!! You have reached 1000 points!
+ /  |  \
+/ * | * \
+- - - - - - - - - - - - - - - - - - - - - - - -
+*/
