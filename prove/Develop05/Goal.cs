@@ -6,6 +6,7 @@ abstract class Goal
     protected bool _complete = false;
     private string _goalDiscription = "No description";
     protected int _pointValue = 0;
+    private string _goalType;
     User _user = new User();
 
     public Goal(User user)
@@ -79,5 +80,10 @@ abstract class Goal
     public string GetName()
     {
         return _goalName;
+    }
+
+    protected void SetGoalType(string goalType)
+    {
+        _goalType = goalType;
     }
 }
