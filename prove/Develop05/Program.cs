@@ -1,5 +1,8 @@
 using System;
-
+/*
+For the creativity portion of this assignment, I added 2 types of celebration; one is a simpler celebration and it happens every 500 points
+after the most recent celebration, and the other is more complicated and happens after ~1000 more points.  
+*/
 class Program
 {
     static void Main(string[] args)
