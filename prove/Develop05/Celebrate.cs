@@ -17,7 +17,6 @@ class Celebrate
         _previous500Celebration = 0;
     }
     
-
     public bool Celebrate500Check(int points)
     {
         int pointIncrease = points - _previous500Celebration;
@@ -31,7 +30,7 @@ class Celebrate
             return true;
         }
 
-            return false;     
+        return false;     
     }
 
     public bool Celebrate1000Check(int points)
@@ -48,12 +47,21 @@ class Celebrate
             return true;
         }
 
-            return false;     
+        return false;     
     }
 
     //method that returns the previous celebration constants that need stored as a combined string
+    public string CelebrateConstantStorageString()
+    {
+        return _previous500Celebration + "|" + _previous1000Celebration;    
+    }
 
     //method that sets the constants to the input strings
+    public void ConstantSetting(int fivehundred, int onethousand)
+    {
+        _previous1000Celebration = onethousand;
+        _previous500Celebration = fivehundred;
+    }
 
     //large celebration method
     public void LargeCelebration(string message)

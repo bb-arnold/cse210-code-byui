@@ -1,7 +1,8 @@
-1950
+3020|3020|2030
 Give a talk|Speak in sacrament meeting when asked|100|True|SimpleGoal
 Study the scriptures|Study for at least 10 min|50|EternalGoal
 Attend the temple|Atend and preform any ordinence|50|3|3|500|ChecklistGoal
 wake up early|wake up by at least 6 am|10|10|10|1000|ChecklistGoal
-eat 10 bananas|Eat 10 bananas in less than 5 minutes|35|False|SimpleGoal
+eat 10 bananas|Eat 10 bananas in less than 5 minutes|35|True|SimpleGoal
 Pray every day|pray at lest twice a day|50|EternalGoal
+Finish my Main project|This project I am working on|500|True|SimpleGoal

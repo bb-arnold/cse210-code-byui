@@ -14,14 +14,14 @@ class User
     }
 
     //written
-    public void SaveGoals()
+    public void SaveGoals(Celebrate celebrate)
     {
         Console.Write("What is the filename? ");
         string filename = Console.ReadLine();
 
         using (StreamWriter goalsFile = new StreamWriter(filename))
         {
-            goalsFile.WriteLine(_points);
+            goalsFile.WriteLine(_points + "|" + celebrate.CelebrateConstantStorageString());
 
             foreach (Goal goal in _goalList)
             {
@@ -86,7 +86,7 @@ class User
         
     }
 
-    public void LoadGoals()
+    public void LoadGoals(Celebrate celebrate)
     {
         Console.Write("What is the filename? ");
         string filename = Console.ReadLine();
@@ -111,7 +111,8 @@ class User
             }
             else
             {
-                _points = int.Parse(line);
+                _points = int.Parse(information[0]);
+                celebrate.ConstantSetting(int.Parse(information[1]), int.Parse(information[2]));
             }
         }
     }

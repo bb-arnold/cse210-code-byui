@@ -40,11 +40,11 @@ class Program
                 }
                 else if (input == 3)
                 {
-                    user.SaveGoals();
+                    user.SaveGoals(celebrate);
                 }
                 else if (input == 4)
                 {
-                    user.LoadGoals();
+                    user.LoadGoals(celebrate);
                 }
                 else if (input == 5)
                 {
