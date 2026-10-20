@@ -1,9 +1,13 @@
 using System;
+using Spectre.Console;
+using System.Text;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello FinalProject World!");
+        Board board = new Board();
+
+        board.TableTesting();
     }
 }
