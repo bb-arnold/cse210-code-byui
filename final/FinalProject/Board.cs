@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 class Board
 {
-    List<BoardSquare> _boardSquares1 = new List<BoardSquare>();
+    List<BoardSquare> _boardSquares = new List<BoardSquare>();
 
     public Board()
     {
@@ -24,7 +24,7 @@ class Board
         Pawn whitePawn = new Pawn("white");
         Pawn blackPawn = new Pawn("black");
 
-        List<BoardSquare> _boardsquares = new List<BoardSquare>
+        List<BoardSquare> _boardsquares1 = new List<BoardSquare>
         {
             new("A1", whiteRook),
             new("A2"),
@@ -50,6 +50,8 @@ class Board
             new("D4"),
             new("D5", blackRook)
         };
+
+        _boardSquares = _boardsquares1;
     }
 
     public void Display()
@@ -60,16 +62,16 @@ class Board
             .ShowRowSeparators();
 
         table.AddColumn("   ");
-        table.AddColumn(" 1 ");
-        table.AddColumn(" 2 ");
-        table.AddColumn(" 3 ");
-        table.AddColumn(" 4 ");
+        table.AddColumn(" A ");
+        table.AddColumn(" B ");
+        table.AddColumn(" C ");
+        table.AddColumn(" D ");
 
-        table.AddRow("D", "", "♘");
-        table.AddRow("♜", "♚", "♞");
-        table.AddRow("♟", "♛", "♙");
-
-        table.Border(TableBorder.HeavyHead);
+        table.AddRow("5", FindSquare("A5").GetPieceDisplay(), FindSquare("B5").GetPieceDisplay(),FindSquare("C5").GetPieceDisplay(), FindSquare("D5").GetPieceDisplay());
+        table.AddRow("4", FindSquare("A4").GetPieceDisplay(), FindSquare("B4").GetPieceDisplay(),FindSquare("C4").GetPieceDisplay(), FindSquare("D4").GetPieceDisplay());
+        table.AddRow("3", FindSquare("A3").GetPieceDisplay(), FindSquare("B3").GetPieceDisplay(),FindSquare("C3").GetPieceDisplay(), FindSquare("D3").GetPieceDisplay());
+        table.AddRow("2", FindSquare("A2").GetPieceDisplay(), FindSquare("B2").GetPieceDisplay(),FindSquare("C2").GetPieceDisplay(), FindSquare("D2").GetPieceDisplay());
+        table.AddRow("1", FindSquare("A1").GetPieceDisplay(), FindSquare("B1").GetPieceDisplay(),FindSquare("C1").GetPieceDisplay(), FindSquare("D1").GetPieceDisplay());
 
         AnsiConsole.Write(table);
     }
@@ -86,10 +88,19 @@ class Board
         return true;
     }
 
-//Unwritten
-    private string FindSquare(string coordinate)
+    private BoardSquare FindSquare(string coordinate)
     {
-        return "FindSquare Unwritten";
+        BoardSquare returnSquare = new BoardSquare("Z26");
+
+        foreach (BoardSquare square in _boardSquares)
+        {
+            if (coordinate == square.GetCoordinateString())
+            {
+                returnSquare = square;
+            }
+        }
+
+        return returnSquare;
     }
 
 //Unwritten

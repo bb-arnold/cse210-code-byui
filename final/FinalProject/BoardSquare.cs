@@ -14,10 +14,12 @@ class BoardSquare
 
     public BoardSquare(string coordinate, ChessPiece piece)
     {
+        _coordinate = coordinate;
+
         _piece = piece;
         _empty = false;
     }
-    
+
 //Unwritten
     public bool IsEmpty()
     {
@@ -29,10 +31,9 @@ class BoardSquare
         _piece = newPiece;   
     }
 
-//Unwritten
     public string GetCoordinateString()
     {
-        return "GetCoordinateString Unwritten";
+        return _coordinate;
     }
 
     public ChessPiece GetPiece()
@@ -46,9 +47,8 @@ class BoardSquare
         
     }
 
-//Unwritten
     public string GetPieceDisplay()
     {
-        return "GetPieceDisplay unwritten";
+        return _piece.GetDisplayString();
     }
 }
