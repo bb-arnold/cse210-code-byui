@@ -3,9 +3,14 @@ using System.Xml;
 
 abstract class ChessPiece
 {
-    string _color;
-    string _displayStringWhite;
-    string _displayStringBlack;
+    private string _color;
+    protected string _displayStringWhite;
+    protected string _displayStringBlack;
+
+    public ChessPiece(string color)
+    {
+        _color = color;
+    }
 
 //Unwritten
     public abstract bool MoveValid(string coordinate1, string coordinate2, string turnColor);
