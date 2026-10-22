@@ -49,6 +49,13 @@ class BoardSquare
 
     public string GetPieceDisplay()
     {
-        return _piece.GetDisplayString();
+        if (!_empty)
+        {
+            return _piece.GetDisplayString();
+        }
+        else
+        {
+            return " ";
+        }
     }
 }
