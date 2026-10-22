@@ -20,10 +20,9 @@ class BoardSquare
         _empty = false;
     }
 
-//Unwritten
     public bool IsEmpty()
     {
-        return false;
+        return _empty;
     }
 
     public void SetPiece(ChessPiece newPiece)
@@ -41,10 +40,9 @@ class BoardSquare
         return _piece;
     }
 
-//Unwritten
     public void SetEmpty()
     {
-        
+        _empty = true;
     }
 
     public string GetPieceDisplay()
