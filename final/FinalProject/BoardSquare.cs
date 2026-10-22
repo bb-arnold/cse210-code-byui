@@ -9,7 +9,7 @@ class BoardSquare
     public BoardSquare(string coordinate)
     {
         _coordinate = coordinate;
-        _empty = false;
+        _empty = true;
     }
 
     public BoardSquare(string coordinate, ChessPiece piece)
