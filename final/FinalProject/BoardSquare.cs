@@ -27,7 +27,8 @@ class BoardSquare
 
     public void SetPiece(ChessPiece newPiece)
     {
-        _piece = newPiece;   
+        _piece = newPiece; 
+        _empty = false;  
     }
 
     public string GetCoordinateString()

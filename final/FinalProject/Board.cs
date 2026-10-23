@@ -76,10 +76,13 @@ class Board
         AnsiConsole.Write(table);
     }
 
-//Unwritten
     public void MovePiece(string coordinate1, string coordinate2)
     {
+        BoardSquare startSquare = FindSquare(coordinate1);
+        BoardSquare endSquare = FindSquare(coordinate2);
 
+        endSquare.SetPiece(startSquare.GetPiece());
+        startSquare.SetEmpty();
     }
 
 //Unwritten
