@@ -18,7 +18,7 @@ class Program
             board.Display();
 
             Console.WriteLine($"It is {turnColor}'s turn.");
-            Console.WriteLine("What is the current coordinate of the piece would you like to move?");
+            Console.WriteLine("What is the current coordinate of the piece would you like to move? (input quit at any time to end the game)");
 
             Console.Write("Move: ");
             startCoordinate = Console.ReadLine();
@@ -28,6 +28,11 @@ class Program
 
             Console.WriteLine();
 
+            if (startCoordinate == "quit" || endCoordinate == "quit")
+            {
+                break;
+            }
+            
             if (board.IsMoveValid(startCoordinate, endCoordinate, turnColor))
             {
                 board.MovePiece(startCoordinate, endCoordinate);

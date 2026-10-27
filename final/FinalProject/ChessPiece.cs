@@ -17,7 +17,6 @@ abstract class ChessPiece
         return _color;
     }
 
-//Unwritten
     public abstract bool MoveValid(string coordinate1, string coordinate2);
 
     public string GetDisplayString()

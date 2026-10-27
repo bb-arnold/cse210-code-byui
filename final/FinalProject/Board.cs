@@ -197,4 +197,60 @@ class Board
 
         return returnBool;
     }
+
+/// <summary>
+/// This method finds the distance in squares between 2 rows or 2 columns.
+/// </summary>
+/// <param name="direction">letters or numbers</param>
+/// <param name="coordinate1"></param>
+/// <param name="coordinate2"></param>
+/// <returns>The distance between the 2 rows/columns</returns>
+    public int FindSquareDistance(string direction, string coordinate1, string coordinate2)
+    {
+        //test
+        Console.WriteLine("Square distance was called");
+
+        int compare1 = 0;
+        int compare2 = 0;
+        int i = 1;
+
+        List<char> lettersToCheck = ['A', 'B', 'C', 'D'];
+        List<char> numberRange = ['1', '2', '3', '4', '5'];
+
+        //set compare1 and compare2
+        if (direction == "letters")
+        {
+            foreach (char letter in lettersToCheck)
+            {
+                if (coordinate1[0] == letter)
+                {
+                    compare1 = i;
+                }
+                if (coordinate2[0] == letter)
+                {
+                    compare2 = i;
+                }
+                i++;
+            }
+        }
+        else if (direction == "numbers")
+        {
+            foreach (int number in numberRange)
+            {
+                if (coordinate1[1] == number)
+                {
+                    compare1 = i;
+                }
+                if (coordinate2[1] == number)
+                {
+                    compare2 = i;
+                }
+                i++;
+            }
+        }
+
+        int result1 = compare1 - compare2;
+        result1 = Math.Abs(result1);
+        return result1; 
+    }
 }
