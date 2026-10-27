@@ -82,6 +82,21 @@ class Board
         BoardSquare startSquare = FindSquare(coordinate1);
         BoardSquare endSquare = FindSquare(coordinate2);
 
+        //pawn promotion code
+        if (startSquare.GetPiece() is Pawn) 
+        {
+            if (startSquare.GetPiece().GetColor() == "white" && coordinate2[1] == '5')
+            {
+                ChessPiece whiteQueen = new Queen("white");
+                startSquare.SetPiece(whiteQueen);
+            }
+            else if (startSquare.GetPiece().GetColor() == "black" && coordinate2[1] == '1')
+            {
+                ChessPiece blackQueen = new Queen("black");
+                startSquare.SetPiece(blackQueen);
+            }
+        }
+
         endSquare.SetPiece(startSquare.GetPiece());
         startSquare.SetEmpty();
     }
