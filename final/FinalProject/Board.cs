@@ -113,7 +113,7 @@ class Board
             Console.WriteLine("The given move is not valid for that type of piece.");
         }
 
-        if (OnBoard(coordinate1) && OnBoard(coordinate2) && startSquare.GetCoordinateString() != "Z26"  && endSquare.GetCoordinateString() != "Z26" &&
+        if (OnBoard(coordinate1) && OnBoard(coordinate2) &&
             //check if the space is empty
             !startSquare.IsEmpty() && 
             //check if the moving piece is the right color
