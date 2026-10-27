@@ -83,4 +83,9 @@ abstract class ChessPiece
         //result1 = Math.Abs(result1); removing this for the pawn class
         return result1; 
     }
+
+    public virtual bool PawnAdditionalMoveValid(BoardSquare startSquare, string coordinate1, BoardSquare endSquare, string coordinate2)
+    {
+        return true;
+    }
 }

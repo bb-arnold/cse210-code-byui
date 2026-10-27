@@ -113,7 +113,13 @@ class Board
             Console.WriteLine("The given move is not valid for that type of piece.");
         }
 
-        if (OnBoard(coordinate1) && OnBoard(coordinate2) &&
+        //Pawn Special Cases when the move is not valid                                                   
+        if (FindSquare(coordinate1).GetPiece() is Pawn && !FindSquare(coordinate1).GetPiece().PawnAdditionalMoveValid(startSquare, coordinate1, endSquare, coordinate2))
+        {
+            return false;
+        }
+        //all other cases
+        else if (OnBoard(coordinate1) && OnBoard(coordinate2) &&
             //check if the space is empty
             !startSquare.IsEmpty() && 
             //check if the moving piece is the right color
