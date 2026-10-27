@@ -9,9 +9,18 @@ class Rook  : ChessPiece
         _displayStringWhite = "♜";
     }
 
-    //Unwritten
     public override bool MoveValid(string coordinate1, string coordinate2)
     {
-        return true;
+        int verticalDistance = EffectiveCoordinateDistance("vertical", coordinate1, coordinate2);
+        int horizontalDistance = EffectiveCoordinateDistance("horizontal", coordinate1, coordinate2);
+
+        if (verticalDistance == 0 || horizontalDistance == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
