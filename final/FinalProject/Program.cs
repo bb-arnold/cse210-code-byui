@@ -30,7 +30,9 @@ class Program
 
             if (board.IsMoveValid(startCoordinate, endCoordinate, turnColor))
             {
-                if (board.VictoryCheck())
+                board.MovePiece(startCoordinate, endCoordinate);
+
+                if (board.VictoryAchieved(turnColor))
                 {
                     gameEnd = true;
                 }
@@ -45,8 +47,6 @@ class Program
                         turnColor = "white";
                     }
                 }
-
-                board.MovePiece(startCoordinate, endCoordinate);
             }
             else
             {
@@ -56,5 +56,7 @@ class Program
             Console.WriteLine();
             Console.WriteLine();
         }
+
+        Console.WriteLine($"congradulations {turnColor}");
     }
 }

@@ -2,6 +2,7 @@ using System;
 using Spectre.Console;
 using System.Text;
 using System.ComponentModel;
+using Spectre.Console.Rendering;
 
 class Board
 {
@@ -85,7 +86,6 @@ class Board
         startSquare.SetEmpty();
     }
 
-//Unwritten
     public bool IsMoveValid(string coordinate1, string coordinate2, string turnColor)
     {
         BoardSquare startSquare = FindSquare(coordinate1);
@@ -180,9 +180,21 @@ class Board
         }
     }
 
-//Unwritten
-    public bool VictoryCheck()
+    public bool VictoryAchieved(string turnColor)
     {
-        return false;
+        bool returnBool = true;
+
+        foreach(BoardSquare square in _boardSquares)
+        {
+            if (!square.IsEmpty())
+            {
+                if (square.GetPiece().GetColor() != turnColor && square.GetPiece() is King)
+                {
+                    returnBool = false;
+                }
+            }
+        }
+
+        return returnBool;
     }
 }
