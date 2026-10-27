@@ -9,9 +9,18 @@ class Queen : ChessPiece
         _displayStringWhite = "♛";
     }
 
-    //Unwritten
     public override bool MoveValid(string coordinate1, string coordinate2)
     {
-        return true;
+        int verticalDistance = Math.Abs(EffectiveCoordinateDistance("vertical", coordinate1, coordinate2));
+        int horizontalDistance = Math.Abs(EffectiveCoordinateDistance("horizontal", coordinate1, coordinate2));
+
+        if(verticalDistance == horizontalDistance || verticalDistance == 0 || horizontalDistance == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

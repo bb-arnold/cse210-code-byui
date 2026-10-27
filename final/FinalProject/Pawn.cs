@@ -10,7 +10,6 @@ class Pawn : ChessPiece
         _displayStringWhite = "♟";
     }
 
-    //Unwritten
     public override bool MoveValid(string coordinate1, string coordinate2)
     {
         int verticalDistance = EffectiveCoordinateDistance("vertical", coordinate1, coordinate2);
