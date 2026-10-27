@@ -80,7 +80,7 @@ abstract class ChessPiece
         }
 
         int result1 = compare1 - compare2;
-        result1 = Math.Abs(result1);
+        //result1 = Math.Abs(result1); removing this for the pawn class
         return result1; 
     }
 }

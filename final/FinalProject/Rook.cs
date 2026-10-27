@@ -11,9 +11,9 @@ class Rook  : ChessPiece
 
     public override bool MoveValid(string coordinate1, string coordinate2)
     {
-        int verticalDistance = EffectiveCoordinateDistance("vertical", coordinate1, coordinate2);
-        int horizontalDistance = EffectiveCoordinateDistance("horizontal", coordinate1, coordinate2);
-
+        int verticalDistance = Math.Abs(EffectiveCoordinateDistance("vertical", coordinate1, coordinate2));
+        int horizontalDistance = Math.Abs(EffectiveCoordinateDistance("horizontal", coordinate1, coordinate2));
+        
         if (verticalDistance == 0 || horizontalDistance == 0)
         {
             return true;
