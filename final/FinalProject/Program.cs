@@ -32,7 +32,7 @@ class Program
             {
                 break;
             }
-            
+
             if (board.IsMoveValid(startCoordinate, endCoordinate, turnColor))
             {
                 board.MovePiece(startCoordinate, endCoordinate);
@@ -62,6 +62,12 @@ class Program
             Console.WriteLine();
         }
 
-        Console.WriteLine($"congradulations {turnColor}");
+        if (gameEnd == true)
+        {
+            Console.WriteLine("That was an excellent game! (Assuming, at least, you actually played one and didn't just fake so you could see this message)");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine($"Congradulations {turnColor}! You win!");
+        }
     }
 }
