@@ -5,7 +5,7 @@ using System.ComponentModel;
 
 class Board
 {
-    List<BoardSquare> _boardSquares = new List<BoardSquare>();
+    private List<BoardSquare> _boardSquares = new List<BoardSquare>();
 
     public Board()
     {
@@ -92,7 +92,11 @@ class Board
         BoardSquare endSquare = FindSquare(coordinate2);
 
         //print what error occured
-        if (startSquare.IsEmpty())
+        if (!OnBoard(coordinate1) || !OnBoard(coordinate2) || startSquare.GetCoordinateString() == "Z26"  || endSquare.GetCoordinateString() == "Z26")
+        {
+            Console.WriteLine("Entered coordinates must be on the board and in the format of a capital letter then a number.");
+        }
+        else if (startSquare.IsEmpty())
         {
             Console.WriteLine("The given start Square does not contain a piece.");
         }
@@ -109,8 +113,9 @@ class Board
             Console.WriteLine("The given move is not valid for that type of piece.");
         }
 
-        //check if the space is empty
-        if (!startSquare.IsEmpty() && 
+        if (OnBoard(coordinate1) && OnBoard(coordinate2) && startSquare.GetCoordinateString() != "Z26"  && endSquare.GetCoordinateString() != "Z26" &&
+            //check if the space is empty
+            !startSquare.IsEmpty() && 
             //check if the moving piece is the right color
             turnColor == startSquare.GetPiece().GetColor() &&
             //check if the space being moved to is empty or contains the correct piece color
@@ -137,8 +142,42 @@ class Board
                 returnSquare = square;
             }
         }
-
         return returnSquare;
+    }
+
+    private bool OnBoard(string coordinate)
+    {
+        bool criteria1 = false;
+        bool criteria2 = false;
+
+        if (coordinate.Length != 2)
+        {
+            return false;
+        }
+        else
+        {
+            foreach (Char character in coordinate)
+            {
+                if (character == 'A' || character == 'B' || character == 'C' || character == 'D')
+                {
+                    criteria1 = true;
+                }
+
+                if (character == '1' || character == '2' || character == '3' || character == '4' || character == '5')
+                {
+                    criteria2 = true;
+                }                
+            }
+
+            if (criteria1 && criteria2)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 
 //Unwritten
