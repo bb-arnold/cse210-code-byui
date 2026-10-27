@@ -12,6 +12,18 @@ class Bishop : ChessPiece
     //Unwritten
     public override bool MoveValid(string coordinate1, string coordinate2)
     {
-        return true;
+        int verticalDistance = EffectiveCoordinateDistance("vertical", coordinate1, coordinate2);
+        int horizontalDistance = EffectiveCoordinateDistance("horizontal", coordinate1, coordinate2);
+
+        if(verticalDistance == horizontalDistance)
+        {
+            Console.WriteLine("it returned true");
+            return true;
+        }
+        else
+        {
+            Console.WriteLine("it returned false");
+            return false;
+        }
     }
 }
