@@ -26,6 +26,8 @@ class Program
             Console.Write("To: ");
             endCoordinate = Console.ReadLine();
 
+            Console.WriteLine();
+
             if (board.IsMoveValid(startCoordinate, endCoordinate, turnColor))
             {
                 if (board.VictoryCheck())

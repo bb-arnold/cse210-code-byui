@@ -10,8 +10,8 @@ class Queen : ChessPiece
     }
 
     //Unwritten
-    public override bool MoveValid(string coordinate1, string coordinate2, string turnColor)
+    public override bool MoveValid(string coordinate1, string coordinate2)
     {
-        return false;
+        return true;
     }
 }

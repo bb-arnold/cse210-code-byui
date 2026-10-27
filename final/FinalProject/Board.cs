@@ -88,7 +88,42 @@ class Board
 //Unwritten
     public bool IsMoveValid(string coordinate1, string coordinate2, string turnColor)
     {
-        return true;
+        BoardSquare startSquare = FindSquare(coordinate1);
+        BoardSquare endSquare = FindSquare(coordinate2);
+
+        //print what error occured
+        if (startSquare.IsEmpty())
+        {
+            Console.WriteLine("The given start Square does not contain a piece.");
+        }
+        else if (turnColor != startSquare.GetPiece().GetColor())
+        {
+            Console.WriteLine("On your turn, only your pieces can move to other squares.");
+        }
+        else if (!endSquare.IsEmpty() && turnColor == endSquare.GetPiece().GetColor())
+        {
+            Console.WriteLine("The square you move to must not contain one of your pieces.");
+        }
+        else if (!startSquare.GetPiece().MoveValid(coordinate1, coordinate2))
+        {
+            Console.WriteLine("The given move is not valid for that type of piece.");
+        }
+
+        //check if the space is empty
+        if (!startSquare.IsEmpty() && 
+            //check if the moving piece is the right color
+            turnColor == startSquare.GetPiece().GetColor() &&
+            //check if the space being moved to is empty or contains the correct piece color
+            (endSquare.IsEmpty() || turnColor != endSquare.GetPiece().GetColor()) &&
+            //check if the move is valid for that given piece
+            startSquare.GetPiece().MoveValid(coordinate1, coordinate2))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     private BoardSquare FindSquare(string coordinate)

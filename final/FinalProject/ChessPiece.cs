@@ -12,8 +12,13 @@ abstract class ChessPiece
         _color = color;
     }
 
+    public string GetColor()
+    {
+        return _color;
+    }
+
 //Unwritten
-    public abstract bool MoveValid(string coordinate1, string coordinate2, string turnColor);
+    public abstract bool MoveValid(string coordinate1, string coordinate2);
 
     public string GetDisplayString()
     {
