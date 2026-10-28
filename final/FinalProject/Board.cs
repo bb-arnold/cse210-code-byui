@@ -218,5 +218,4 @@ class Board
 
         return returnBool;
     }
-
 }

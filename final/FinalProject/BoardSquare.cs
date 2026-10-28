@@ -2,9 +2,9 @@ using System;
 
 class BoardSquare
 {
-    string _coordinate;
-    ChessPiece _piece;
-    bool _empty;
+    private string _coordinate;
+    private ChessPiece _piece;
+    private bool _empty;
 
     public BoardSquare(string coordinate)
     {
